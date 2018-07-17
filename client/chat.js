@@ -8,11 +8,11 @@ var registered = false;
 var password="1234";
 
 // Server set up and running on AWS instance
-var URL = "ec2-18-222-181-248.us-east-2.compute.amazonaws.com"; // or "localhost"
-var PORT = 8080;
+var URL = "ec2-52-14-35-162.us-east-2.compute.amazonaws.com"; // or "localhost"
+var PORT = "8080";
 
 	// create websocket instance
-var mySocket = new WebSocket("ws://".concat(URL, ":", PORT, "/ws");
+var mySocket = new WebSocket("ws://".concat(URL, ":", PORT, "/ws"));
 
 	function register(){		
 	//Read form input data (UserId and Password) via url query

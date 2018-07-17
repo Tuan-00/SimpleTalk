@@ -39,7 +39,6 @@ class ChatFactory(WebSocketServerFactory):
     def __init__(self, *args, **kwargs):
         super(ChatFactory, self).__init__(*args, **kwargs)
         self.clients = {}
-        password="1234"
  
     def register(self, client):
         """
@@ -77,6 +76,7 @@ class ChatFactory(WebSocketServerFactory):
         """   
         Unsecure registering. A preliminary payload is checked against an open password.  
         """
+        password="1234"
         if (payload==password):
             c["validated"] = "yes";
             payload=""
@@ -95,7 +95,7 @@ if __name__ == "__main__":
     log.startLogging(sys.stdout) 
 
 	# Server set up and running on AWS instance
-    URL = "ec2-18-222-181-248.us-east-2.compute.amazonaws.com" # or localhost = "127.0.0.1"
+    URL = "ec2-54-14-35-162.us-east-2.compute.amazonaws.com" # or localhost = "127.0.0.1"
     root = File(".")
  
     factory = ChatFactory(u"ws://"+URL+":8080")
