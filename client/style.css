@@ -1,0 +1,112 @@
+ /* Chat containers */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+	position: relative;
+    text-align: center;
+	background-color: #99ddff;
+    bottom: 0;
+	padding-top: 50px;
+}
+.send-container {
+    border: 2px solid #dedede;
+    background-color: #ffffff; 
+	height: 100px;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+	text-align: right;
+}
+.recv-container {
+    border: 2px solid #dedede;
+    background-color: #b3b3ff;
+	height: 100px;
+    border-color: #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+	text-align: left;
+}
+/* For the error message*/
+.empty-room {
+    border: 2px solid #dedede;
+    background-color: #ffffff;
+	height: 100px;
+    border-color: #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+	text-align: left;
+}
+/* Style the left image */
+img.left{
+ 	position: relative;
+	top: 0%;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    max-width: 50px;
+    width: 100%;
+    border-radius: 50%;
+	height: 50px;
+}
+/* Style the right image*/
+img.right{
+ 	position:relative;
+	top:0%;
+    float: right;
+    margin-left: 10px;
+    margin-right:10px;
+    max-width: 50px;
+    width: 100%;
+    border-radius: 50%;
+	height: 50px;
+}
+/* Style time text of the right*/
+.time-right {
+    float: right;
+    color: #aaa;
+	bottom: 0;
+	right: #7575a3;
+}
+/* Style time text of the left*/
+.time-left {
+	top: 0;
+    text-align: left;
+	left: 0;
+    float: left;
+    color: #7575a3;
+} 
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+/* Overwrite default styles of hr */
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+/* Set a style for the submit button */
+.registerbtn {
+    background-color: #1a8cff;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+.registerbtn:hover {
+    opacity: 1;
+}
+
