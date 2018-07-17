@@ -8,7 +8,7 @@ SimpleTalk provides a Javascript Client that can run out-of-the-box with a moder
 
 # Try it now!
 
-You can start off right now. Click [here](https://ec2-52-14-35-162.us-east-2.compute.amazonaws.com) and connect to a chatroom (server) running on AWS instances. Also the Javascript code is fetched from there.
+You can start off right now. Click [here](http://ec2-52-14-35-162.us-east-2.compute.amazonaws.com/index.html) and connect to a chatroom (server) running on AWS instances. Also the Javascript code is fetched from there.
 
 [Client Installation](http://github.com/Tuan-00/SimpleTalk/tree/master/client) 
 
