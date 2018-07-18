@@ -21,7 +21,6 @@ var mySocket = new WebSocket("ws://".concat(URL, ":", PORT, "/ws"));
 
 		if (Pwd == password){
 	// Password is sent as regular message.
-			mySocket.send(Pwd);
 			registered = true;
 	// Returns text to be placed on "status button"
 			return "Send Message"; 
@@ -115,7 +114,7 @@ var mySocket = new WebSocket("ws://".concat(URL, ":", PORT, "/ws"));
 	/* For some reason the form in some cases was submitting twice. 
 	To prevent this a check empty string was put in place */
 		if(input.value != ""){
-			mySocket.send(input.value);
+			mySocket.send(Pwd.concat('@#$%',input.value));
 			newP.textContent = input.value;
 			input.value = "";
 	
@@ -150,7 +149,7 @@ var mySocket = new WebSocket("ws://".concat(URL, ":", PORT, "/ws"));
 		newSpan.textContent = "".concat(d.getHours(), ':', d.getMinutes(), ' - ', Username);
 		
 		if(input.value != ""){
-	        mySocket.send(input.value);
+	        mySocket.send(Pwd.concat('@#$%',input.value));
 			newP.textContent = input.value;
 			input.value = "";
 

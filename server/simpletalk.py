@@ -20,7 +20,6 @@ class MyServerProtocol(WebSocketServerProtocol):
         and receive messages.
         """   
         self.factory.register(self)
-        self.factory.findPartner(self)
  
     def connectionLost(self, reason):
         """
@@ -45,7 +44,7 @@ class ChatFactory(WebSocketServerFactory):
         Add client to list of managed connections. 'validated' indicates if 
         client has provided correct password.
         """
-        self.clients[client.peer] = {"object": client, "partner": None, "validated": "yes"}
+        self.clients[client.peer] = {"object": client, "partner": None, "validated": None}
 
  
     def unregister(self, client):
@@ -89,9 +88,12 @@ class ChatFactory(WebSocketServerFactory):
         Unsecure registering. A preliminary payload is checked against an open password.  
         """
         password="1234"
-        if (payload==password):
-            c["validated"] = "yes";
-            payload=""
+        message = payload.split("@#$%")
+        if (message[0]==password):
+            c["validated"] = "yes"
+            if not c["partner"]:
+                self.findPartner(client)
+            payload=message[1]
         """
         Send message if client is registered and if it has a partned.
         """
@@ -101,9 +103,8 @@ class ChatFactory(WebSocketServerFactory):
         elif not c["partner"]:
             c["object"].sendMessage("Sorry you dont have a partner yet, check back in a minute")
             self.findPartner(c["object"])
-            
-        else:
-            c["partner"].sendMessage(payload)
+        elif message[1]:
+            c["partner"].sendMessage(message[1])
 
 if __name__ == "__main__":
     log.startLogging(sys.stdout) 
