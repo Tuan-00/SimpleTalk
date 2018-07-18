@@ -45,14 +45,26 @@ class ChatFactory(WebSocketServerFactory):
         Add client to list of managed connections. 'validated' indicates if 
         client has provided correct password.
         """
-        self.clients[client.peer] = {"object": client, "partner": None, "validated": None}
+        self.clients[client.peer] = {"object": client, "partner": None, "validated": "yes"}
 
  
     def unregister(self, client):
         """
         Remove client from list of managed connections.
         """
+        partner = None
+
+        for client_key in self.clients:
+            if client.peer == client_key:
+                partner = self.clients[client.peer]["partner"] 
+
         self.clients.pop(client.peer)
+        
+        if partner:
+            self.clients.pop(partner.peer)
+            self.register(partner)
+            self.findPartner(partner)
+		
  
     def findPartner(self, client):
         """
@@ -83,19 +95,21 @@ class ChatFactory(WebSocketServerFactory):
         """
         Send message if client is registered and if it has a partned.
         """
+
         if not c["validated"]:
 			return
         elif not c["partner"]:
             c["object"].sendMessage("Sorry you dont have a partner yet, check back in a minute")
+            self.findPartner(c["object"])
+            
         else:
             c["partner"].sendMessage(payload)
-
 
 if __name__ == "__main__":
     log.startLogging(sys.stdout) 
 
 	# Server set up and running on AWS instance
-    URL = "ec2-54-14-35-162.us-east-2.compute.amazonaws.com" # or localhost = "127.0.0.1"
+    URL = "ec2-52-14-35-162.us-east-2.compute.amazonaws.com" # or localhost = 
     root = File(".")
  
     factory = ChatFactory(u"ws://"+URL+":8080")
