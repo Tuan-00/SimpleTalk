@@ -110,7 +110,7 @@ if __name__ == "__main__":
     log.startLogging(sys.stdout) 
 
 	# Server set up and running on AWS instance
-    URL = "ec2-52-14-35-162.us-east-2.compute.amazonaws.com" # or localhost = 
+    URL = "ec2-18-216-50-181.us-east-2.compute.amazonaws.com" # or localhost = 
     root = File(".")
  
     factory = ChatFactory(u"ws://"+URL+":8080")

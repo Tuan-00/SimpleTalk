@@ -24,7 +24,7 @@ $ python ./simpletalk.py
 
 # Try it now!
 
-You can start off right now. Click [here](http://ec2-52-14-35-162.us-east-2.compute.amazonaws.com/index.html) and connect to a chatroom (server) running on AWS instances.
+You can start off right now. Click [here](http://ec2-18-216-50-181.us-east-2.compute.amazonaws.com/index.html) and connect to a chatroom (server) running on AWS instances.
 
 
 

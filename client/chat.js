@@ -8,7 +8,7 @@ var registered = false;
 var password="1234";
 
 // Server set up and running on AWS instance
-var URL = "ec2-52-14-35-162.us-east-2.compute.amazonaws.com"; // or "localhost"
+var URL = "ec2-18-216-50-181.us-east-2.compute.amazonaws.com"; // or "localhost"
 var PORT = "8080";
 
 	// create websocket instance
